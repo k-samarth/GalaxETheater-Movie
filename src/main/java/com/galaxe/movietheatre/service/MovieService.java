@@ -15,7 +15,7 @@ public interface MovieService {
 	public String updateMovie(MovieDto movieDto) throws MovieDoesNotExistsException;
 	public String deleteMovie(String moviename);// throws MovieDoesNotExistsException, MovieAlreadyDeletedException;
 	public List<MovieDto> getMovies() throws MovieDoesNotExistsException;
-	public Movie getMovieByName(String movieName) throws MovieDoesNotExistsException, MovieAlreadyDeletedException;
+	public MovieDto getMovieByName(String movieName) throws MovieDoesNotExistsException, MovieAlreadyDeletedException;
 	public List<MovieDto> getMoviesByStatus(String status) throws MovieDoesNotExistsException;
 	public Cast getMoviesByCast(String castName);
 }

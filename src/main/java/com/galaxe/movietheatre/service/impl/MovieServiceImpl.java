@@ -1,6 +1,7 @@
 package com.galaxe.movietheatre.service.impl;
 
 import java.util.ArrayList;
+//import org.apache.log4j.Logger;
 import java.util.List;
 
 import java.util.Optional;
@@ -81,10 +82,10 @@ public class MovieServiceImpl implements MovieService{
 		// TODO Auto-generated method stub
 		
 		Movie movie=movieRepository.findByMovieName(moviename);
-//		if(movie==null)
-//			throw new MovieDoesNotExistsException("No Movie Exists With Name :"+moviename);
-//		if(movie.getMovieStatus()==MovieStatus.DELETE)
-//			throw new MovieAlreadyDeletedException("Movie Is Alredy Deleted With Given Name:"+moviename);
+		if(movie==null)
+			throw new MovieDoesNotExistsException("No Movie Exists With Name :"+moviename);
+		if(movie.getMovieStatus()==MovieStatus.DELETE)
+			throw new MovieAlreadyDeletedException("Movie Is Alredy Deleted With Given Name:"+moviename);
 		movie.setMovieStatus(MovieStatus.DELETE);
 		movieRepository.save(movie);
 		return "Movie Deleted SuccessFully";
@@ -100,14 +101,14 @@ public class MovieServiceImpl implements MovieService{
 		
 	}
 	
-	public Movie getMovieByName(String movieName){
+	public MovieDto getMovieByName(String movieName){
 		Movie movie=movieRepository.findByMovieName(movieName);
 		if(movie==null)
 			throw new MovieDoesNotExistsException("No Such Movie Exists With Given Name :"+movieName);
 		if(movie.getMovieStatus()==MovieStatus.DELETE)
 			throw new MovieAlreadyDeletedException("Sorry! Movie Not Available.");
-		//MovieDto movieByName=movieMapper.convertToDto(movie);
-		return movie;
+		MovieDto movieByName=movieMapper.convertToDto(movie);
+		return movieByName;
 	}
 	
 	public List<MovieDto> getMoviesByStatus(String status) throws MovieDoesNotExistsException {
