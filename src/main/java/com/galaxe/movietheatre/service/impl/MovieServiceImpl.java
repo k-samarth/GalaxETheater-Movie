@@ -1,7 +1,6 @@
 package com.galaxe.movietheatre.service.impl;
 
 import java.util.ArrayList;
-import org.apache.log4j.Logger;
 import java.util.List;
 
 import java.util.Optional;
