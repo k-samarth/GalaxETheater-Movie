@@ -8,14 +8,13 @@ spring:
     name: movies-service
 
   datasource:
-   # url: jdbc:mysql://localhost:3306/clinicServiceDataBase?createDatabaseIfNotExist=true
-    #url: jdbc:mysql://localhost:3306/appointmentServiceDataBase?createDatabaseIfNotExist=true
-    url: jdbc:mysql://db.ccb27u4ngh0j.ap-south-1.rds.amazonaws.com:3306/movies?createDatabaseIfNotExist=true
+   
+    url: jdbc:mysql://galaxe.mysql.database.azure.com/movies?createDatabaseIfNotExist=true
     #username: root
     #password: 1234
     #url: jdbc:mysql://db.ccb27u4ngh0j.ap-south-1.rds.amazonaws.com:3306/appoinmentopt?createDatabaseIfNotExist=true 
-    username: admin 
-    password: qwerty12345
+    username: Galaxe_Admin 
+    password: root@123
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:
