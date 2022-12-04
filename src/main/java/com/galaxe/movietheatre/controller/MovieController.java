@@ -44,10 +44,10 @@ public class MovieController {
 				} catch (MovieAlreadyExistsException e) {
 					// TODO Auto-generated catch block
 //					log.info(e.getMessage());
-					responseEntity=new ResponseEntity<String>(e.getMessage(),HttpStatus.BAD_REQUEST);
+					responseEntity=new ResponseEntity<String>(e.getMessage(),HttpStatus.IM_USED);
 				} catch(Exception e) {
 //					log.info(e.getMessage());
-					responseEntity=new ResponseEntity<String>(e.getMessage(),HttpStatus.EXPECTATION_FAILED);
+					responseEntity=new ResponseEntity<String>(e.getMessage(),HttpStatus.IM_USED);
 				}
 			return responseEntity;
 		}
@@ -62,10 +62,10 @@ public class MovieController {
 			} catch (MovieDoesNotExistsException e) {
 				// TODO Auto-generated catch block
 //				log.info(e.getMessage());
-				responseEntity=new ResponseEntity<String>(e.getMessage(),HttpStatus.BAD_REQUEST);
+				responseEntity=new ResponseEntity<String>(e.getMessage(),HttpStatus.IM_USED);
 			} catch(Exception e) {
 //				log.info(e.getMessage());
-				responseEntity=new ResponseEntity<String>(e.getMessage(),HttpStatus.EXPECTATION_FAILED);
+				responseEntity=new ResponseEntity<String>(e.getMessage(),HttpStatus.IM_USED);
 			}
 		return responseEntity;
 		}
@@ -81,14 +81,14 @@ public class MovieController {
 			catch (MovieDoesNotExistsException e) {
 				// TODO: handle exception
 //				log.info(e.getMessage());
-				responseEntity=new ResponseEntity<String>(e.getMessage(),HttpStatus.BAD_REQUEST);
+				responseEntity=new ResponseEntity<String>(e.getMessage(),HttpStatus.IM_USED);
 			} catch (MovieAlreadyDeletedException e) {
 				// TODO Auto-generated catch block
 //				log.info(e.getMessage());
-				responseEntity=new ResponseEntity<String>(e.getMessage(),HttpStatus.BAD_REQUEST);
+				responseEntity=new ResponseEntity<String>(e.getMessage(),HttpStatus.IM_USED);
 			} catch(Exception e) {
 //				log.info(e.getMessage());
-				responseEntity=new ResponseEntity<String>(e.getMessage(),HttpStatus.EXPECTATION_FAILED);
+				responseEntity=new ResponseEntity<String>(e.getMessage(),HttpStatus.IM_USED);
 			}
 			return responseEntity;
 		}
@@ -103,10 +103,10 @@ public class MovieController {
 			} catch (MovieDoesNotExistsException e){
 				// TODO Auto-generated catch block
 //				log.info(e.getMessage());
-				responseEntity=new ResponseEntity<String>(e.getMessage(),HttpStatus.NOT_ACCEPTABLE);
+				responseEntity=new ResponseEntity<String>(e.getMessage(),HttpStatus.IM_USED);
 			} catch(Exception e) {
 //				log.info(e.getMessage());
-				responseEntity=new ResponseEntity<String>(e.getMessage(),HttpStatus.EXPECTATION_FAILED);
+				responseEntity=new ResponseEntity<String>(e.getMessage(),HttpStatus.IM_USED);
 			}
 			return responseEntity;
 		}
@@ -120,14 +120,14 @@ public class MovieController {
 			} catch (MovieDoesNotExistsException e) {
 				// TODO Auto-generated catch block
 //				log.info(e.getMessage());
-				responseEntity=new ResponseEntity<String>(e.getMessage(),HttpStatus.NOT_FOUND);
+				responseEntity=new ResponseEntity<String>(e.getMessage(),HttpStatus.IM_USED);
 			} catch (MovieAlreadyDeletedException e) {
 				// TODO Auto-generated catch block
 //				log.info(e.getMessage());
-				responseEntity=new ResponseEntity<String>(e.getMessage(),HttpStatus.BAD_REQUEST);
+				responseEntity=new ResponseEntity<String>(e.getMessage(),HttpStatus.IM_USED);
 			}catch(Exception e) {
 //				log.info(e.getMessage());
-				responseEntity=new ResponseEntity<String>(e.getMessage(),HttpStatus.EXPECTATION_FAILED);
+				responseEntity=new ResponseEntity<String>(e.getMessage(),HttpStatus.IM_USED);
 			}
 			return responseEntity;
 		}
@@ -144,10 +144,10 @@ public class MovieController {
 			} catch (MovieDoesNotExistsException e) {
 				// TODO Auto-generated catch block
 //				log.info(e.getMessage());
-				responseEntity=new ResponseEntity<String>(e.getMessage(),HttpStatus.BAD_REQUEST);
+				responseEntity=new ResponseEntity<String>(e.getMessage(),HttpStatus.IM_USED);
 			}catch(Exception e) {
 //				log.info(e.getMessage());
-				responseEntity=new ResponseEntity<String>(e.getMessage(),HttpStatus.EXPECTATION_FAILED);
+				responseEntity=new ResponseEntity<String>(e.getMessage(),HttpStatus.IM_USED);
 			}
 			
 			return responseEntity;
