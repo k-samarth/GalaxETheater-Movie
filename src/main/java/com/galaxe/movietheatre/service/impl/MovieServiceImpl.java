@@ -85,7 +85,7 @@ public class MovieServiceImpl implements MovieService{
 		if(movie==null)
 			throw new MovieDoesNotExistsException("No Movie Exists With Name :"+moviename);
 		if(movie.getMovieStatus()==MovieStatus.DELETE)
-			throw new MovieAlreadyDeletedException("Movie Is Alredy Deleted With Given Name:"+moviename);
+			throw new MovieAlreadyDeletedException("Movie Is Already Deleted With Given Name:"+moviename);
 		movie.setMovieStatus(MovieStatus.DELETE);
 		movieRepository.save(movie);
 		return "Movie Deleted SuccessFully";
@@ -93,8 +93,10 @@ public class MovieServiceImpl implements MovieService{
 	
 	public List<MovieDto> getMovies() throws MovieDoesNotExistsException {
 		// TODO Auto-generated method stub
-		List<MovieDto> allMovieList=getMoviesByStatus("RUNNING");
-		allMovieList.addAll(getMoviesByStatus("UPCOMING"));
+		//List<MovieDto> allMovieList=getMoviesByStatus("RUNNING");
+		//allMovieList.addAll(getMoviesByStatus("UPCOMING"));
+		List<Movie> allMovieList=movieRepository.findByMovieStatus(MovieStatus.RUNNING);
+		allMovieList.addAll(movieRepository.findByMovieStatus(MovieStatus.UPCOMING));
 		if(allMovieList.isEmpty())
 			throw new MovieDoesNotExistsException("Sorry! No Movies Available.");
 		return allMovieList;
