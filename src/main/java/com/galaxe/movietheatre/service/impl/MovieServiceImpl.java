@@ -95,11 +95,17 @@ public class MovieServiceImpl implements MovieService{
 		// TODO Auto-generated method stub
 		//List<MovieDto> allMovieList=getMoviesByStatus("RUNNING");
 		//allMovieList.addAll(getMoviesByStatus("UPCOMING"));
+		//if(allMovieList.isEmpty())
+		//	throw new MovieDoesNotExistsException("Sorry! No Movies Available.");
+		//return allMovieList;
 		List<Movie> allMovieList=movieRepository.findByMovieStatus(MovieStatus.RUNNING);
 		allMovieList.addAll(movieRepository.findByMovieStatus(MovieStatus.UPCOMING));
 		if(allMovieList.isEmpty())
 			throw new MovieDoesNotExistsException("Sorry! No Movies Available.");
-		return allMovieList;
+		List<MovieDto> allMovieDtoList=new ArrayList<MovieDto>();
+		for(Movie movie:allMovieList)
+			allMovieDtoList.add(movieMapper.convertToDto(movie));
+		return allMovieDtoList;
 		
 	}
 	
