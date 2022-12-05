@@ -92,12 +92,6 @@ public class MovieServiceImpl implements MovieService{
 	}
 	
 	public List<MovieDto> getMovies() throws MovieDoesNotExistsException {
-		// TODO Auto-generated method stub
-		//List<MovieDto> allMovieList=getMoviesByStatus("RUNNING");
-		//allMovieList.addAll(getMoviesByStatus("UPCOMING"));
-		//if(allMovieList.isEmpty())
-		//	throw new MovieDoesNotExistsException("Sorry! No Movies Available.");
-		//return allMovieList;
 		List<Movie> allMovieList=movieRepository.findByMovieStatus(MovieStatus.RUNNING);
 		allMovieList.addAll(movieRepository.findByMovieStatus(MovieStatus.UPCOMING));
 		if(allMovieList.isEmpty())
@@ -106,7 +100,6 @@ public class MovieServiceImpl implements MovieService{
 		for(Movie movie:allMovieList)
 			allMovieDtoList.add(movieMapper.convertToDto(movie));
 		return allMovieDtoList;
-		
 	}
 	
 	public MovieDto getMovieByName(String movieName){
